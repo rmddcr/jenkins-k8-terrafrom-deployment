@@ -1,0 +1,25 @@
+docker-compose.yaml
+.idea/
+.history/
+.DS_Store
+
+node_modules
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+pkgs/
+cognito_app_ids.json
+
+.terraform.lock.hcl
+
+# Crash log files
+*backend_config.tf
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
