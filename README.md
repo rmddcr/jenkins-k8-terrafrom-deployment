@@ -31,7 +31,10 @@ Go to the path `http://${Loadbalancer_public_ip}:8080/` and login using the cred
 
 The requested job has already been configured in the server as widgets-resources-build
 with default-agent
-Once the job is triggered it will automatically provision an agent pod and do the build process according to the job description. Once finished it will terminate the above pod
+Once the job is manually triggered it will automatically provision an agent pod and do the build process according to the job description. 
+
+Once finished it will automatically terminate the above pod
+
 You can use the command `kubectl get pods -n jenkins --watch` monitor the above process
 
 I have setup an sample job which clones the repo and install the dependencies this can be extended as required easily 
@@ -39,4 +42,4 @@ I have setup an sample job which clones the repo and install the dependencies th
 
 ### Resource clean up
 
-- You can run command `terraform apply` clean up the created resources in the jenkins namespace.
+You can run command `terraform apply` clean up the created resources in the jenkins namespace.
