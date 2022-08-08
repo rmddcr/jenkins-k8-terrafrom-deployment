@@ -34,5 +34,5 @@ resource "kubernetes_namespace" "jenkins" {
 # provide the loadbalancer ip for the nlb
 # if you want to provide a static dns entry please use a ingress service insted
 variable "ip" {
-  default = "52.149.188.63"
+  default = "20.85.197.214"
 }

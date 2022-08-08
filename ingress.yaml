@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: nginx
+    meta.helm.sh/release-name: jenkins-dev
+    meta.helm.sh/release-namespace: jenkins
+  labels:
+    app.kubernetes.io/component: jenkins
+    app.kubernetes.io/instance: jenkins-dev
+    app.kubernetes.io/name: jenkins
+  name: jenkins-dev
+  namespace: jenkins
+spec:
+  rules:
+  - host: <JENKINS_DOMAIN>
+    http:
+      paths:
+      - backend:
+          service:
+            name: jenkins
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - <JENKINS_DOMAIN>
+    secretName: jenkins-dev-tls
+status:
+  loadBalancer:
+    ingress:
+    - ip: <LOADBALANCER_IP>
